@@ -9,6 +9,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  String text ="Simple text";
+  void changeText(){
+setState(() {
+  text="Hello Wold";
+});
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +55,9 @@ child: AddToDo(),
           )
         ],
       ),
-      
+      body: Container(
+        child: Text("$text"),
+      ),
     
     );
   }
