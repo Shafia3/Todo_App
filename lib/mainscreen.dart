@@ -9,7 +9,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+
+
   String text ="Simple text";
+
   void changeText(){
 setState(() {
   text="Hello Wold";
@@ -40,7 +44,7 @@ setState(() {
                 return Container(
                   padding: EdgeInsets.all(20),
 height: 200,
-child: AddToDo(),
+child: AddToDo(changeText: changeText),
                 );
                });
             },
