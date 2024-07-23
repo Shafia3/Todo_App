@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 class AddToDo extends StatefulWidget {
-  void Function() changeText;
- AddToDo({super.key,required this.changeText});
+  void Function({required String todoText}) changeText;
+  AddToDo({super.key, required this.changeText});
 
   @override
   State<AddToDo> createState() => _AddToDoState();
@@ -20,20 +19,22 @@ class _AddToDoState extends State<AddToDo> {
           controller: todoText,
           decoration: InputDecoration(
             hintText: "Write your todo here..",
-            // labelText: "Username", 
+            // labelText: "Username",
             // icon: Icon(Icons.verified_user),
-            
           ),
           // style: TextStyle(
           //   fontWeight: FontWeight.bold,color: Colors.blueAccent,
           // ),
         ),
-        ElevatedButton(onPressed: () { 
-          print(todoText.text);
+        ElevatedButton(
+            onPressed: () {
+              print(todoText.text);
 
-          todoText.text = "";
-          widget.changeText();
-        }, child: Text('Add')),
+              todoText.text = "";
+              widget.changeText(todoText: todoText.text);
+              todoText.text = "";
+            },
+            child: Text('Add')),
       ],
     );
   }

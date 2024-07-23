@@ -14,9 +14,9 @@ class _MainScreenState extends State<MainScreen> {
 
   String text ="Simple text";
 
-  void changeText(){
+  void changeText({required String todoText}){
 setState(() {
-  text="Hello Wold";
+  text="$todoText";
 });
   }
   @override
@@ -41,15 +41,19 @@ setState(() {
               // backgroundColor: Color.fromARGB(255, 205, 203, 203),
               context: context,
                builder: (context){
-                return Container(
-                  padding: EdgeInsets.all(20),
-height: 200,
-child: AddToDo(changeText: changeText),
+                return Padding(
+                  padding: MediaQuery.of(context).viewInsets,
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                  height: 200,
+                  child: AddToDo(changeText: changeText),
+                  ),
                 );
                });
             },
             child: Padding(padding: const EdgeInsets.all(8),
          
+
             child: Icon(
               Icons.add, 
               // color: Colors.red,
